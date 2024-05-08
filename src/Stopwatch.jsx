@@ -38,53 +38,47 @@ const Stopwatch = () => {
 
 	return (
 		<section
-			style={{
-				display: "flex",
-				justifyContent: "center",
-				alignItems: "center",
-				// height: "100vh",
-			}}>
-			<article
-				style={{
-					width: "25rem",
-					height: "13rem",
-					border: "1px solid grey",
-					marginTop: "3rem",
-					borderRadius: "8px",
-					display: "flex",
-					flexDirection: "column",
-					justifyContent: "start",
-					alignItems: "center",
-				}}>
+		// style={{
+		// 	display: "flex",
+		// 	justifyContent: "center",
+		// 	alignItems: "center",
+		// 	// height: "100vh",
+		// }}
+		>
+			<article>
 				<h6 style={{ fontSize: "1.5rem", margin: "0", marginTop: "1rem" }}>
 					Stopwatch
 				</h6>
 
 				{/* <h4 style={{ fontSize: "1.5rem" }}>00 : 00</h4> */}
-				<h4 style={{ fontSize: "1.5rem" }}>{convertIntoMinsSec(myClock)}</h4>
+				<h4 style={{ fontSize: "1.5rem" }}>
+					Time: {convertIntoMinsSec(myClock)}
+				</h4>
 
 				<article
-					style={{
-						width: "100%",
-						display: "flex",
-						justifyContent: "center",
-						alignItems: "center",
-					}}>
+				// style={{
+				// 	width: "100%",
+				// 	display: "flex",
+				// 	justifyContent: "center",
+				// 	alignItems: "center",
+				// }}
+				>
 					<button
-						style={{
-							marginRight: "1rem",
-							background: `${isTimerOn ? "red" : "green"}`,
-							color: "white",
-							padding: "1rem 2rem",
-							borderRadius: "4px",
-							fontSize: "1rem",
-						}}
+						// style={{
+						// 	marginRight: "1rem",
+						// 	background: `${isTimerOn ? "red" : "green"}`,
+						// 	color: "white",
+						// 	padding: "1rem 2rem",
+						// 	borderRadius: "4px",
+						// 	fontSize: "1rem",
+						// }}
 						onClick={() => handleClockStart()}>
 						{isTimerOn ? "Stop" : "Start"}
 					</button>
 					<button
 						onClick={() => handleClockReset()}
-						style={{ padding: "1rem 2rem" }}>
+						// style={{ padding: "1rem 2rem" }}
+					>
 						Reset
 					</button>
 				</article>
