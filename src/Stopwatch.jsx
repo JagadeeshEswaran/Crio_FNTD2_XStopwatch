@@ -2,26 +2,22 @@
 import React, { useEffect, useState } from "react";
 
 const Stopwatch = () => {
-	const [isTimerOn, setTimerOn] = useState(false);
 	const [myClock, setClock] = useState(0);
+	const [isTimerOn, setTimerOn] = useState(false);
 
 	const handleClockStart = () => {
-		setTimerOn(!isTimerOn);
-		setClock((prevTime) => prevTime + 1);
+		setTimerOn((prevState) => !prevState);
 	};
 
 	const handleClockReset = () => {
-		setTimerOn(false);
 		setClock(0);
+		setTimerOn(false);
 	};
 
-	const convertIntoMinsSec = (timeInNumber) => {
-		let reminder = timeInNumber % 60;
-		let mins = Math.floor(timeInNumber / 60);
-
-		// console.log(reminder);
-
-		return `${mins} : ${reminder < 10 ? "0" + reminder : reminder}`;
+	const convertIntoMinsSec = (seconds) => {
+		const minutes = Math.floor(seconds / 60);
+		const remainingSeconds = seconds % 60;
+		return `${minutes}:${remainingSeconds < 10 ? "0" : ""}${remainingSeconds}`;
 	};
 
 	useEffect(() => {
@@ -31,10 +27,12 @@ const Stopwatch = () => {
 			myTimer = setInterval(() => {
 				setClock((prevTime) => prevTime + 1);
 			}, 1000);
+		} else {
+			clearInterval(myTimer);
 		}
 
 		return () => clearInterval(myTimer);
-	}, [myClock]);
+	}, [isTimerOn]);
 
 	return (
 		<section
@@ -50,10 +48,7 @@ const Stopwatch = () => {
 					Stopwatch
 				</h6>
 
-				{/* <h4 style={{ fontSize: "1.5rem" }}>00 : 00</h4> */}
-				<h4 style={{ fontSize: "1.5rem" }}>
-					Time: {convertIntoMinsSec(myClock)}
-				</h4>
+				<p>Time: {convertIntoMinsSec(myClock)}</p>
 
 				<article
 				// style={{
