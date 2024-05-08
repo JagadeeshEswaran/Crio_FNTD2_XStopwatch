@@ -21,9 +21,7 @@ const Stopwatch = () => {
 
 		// console.log(reminder);
 
-		return `${mins < 10 ? "0" + mins : mins} : ${
-			reminder < 10 ? "0" + reminder : reminder
-		}`;
+		return `${mins} : ${reminder < 10 ? "0" + reminder : reminder}`;
 	};
 
 	useEffect(() => {
